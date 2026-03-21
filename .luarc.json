@@ -1,0 +1,8 @@
+{
+  "Lua.runtime.version": "Lua 5.4",
+  "Lua.workspace.library": [
+    "/Users/eric/Dev/ethos-lua-definitions/library/ethos.lua",
+    "${workspaceFolder}/gps-qrcode"
+  ],
+  "Lua.telemetry.enable": false
+}

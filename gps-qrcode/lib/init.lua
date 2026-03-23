@@ -6,6 +6,7 @@ local ns = {}
 for k,v in pairs(libVars) do
     ns[k] = v
 end
+system.compile("lib/ethos-qrencode.lua") -- do not load on start, just compile it
 
 system.compile("i18n/i18n.lua")
 local i18n = assert(loadfile("i18n/i18n.luac", "b"))(ns.isUTF8Compatible)
@@ -29,7 +30,7 @@ end
 
 
 include("lib/utils.lua")
-include("lib/ethos-fast-qr.lua")
+
 libEnv = nil
 libVars = nil
 return ns

@@ -2,4 +2,9 @@
 -- the key ending with UT8 has the same purpose for ethos >= 1.7
 -- even in UTF8 not all characters are available, please do check your translation with the nightly26
 return {
+    progressTitle = "Progress",
+    progressText = "Generating QR code ...",
+    findYourModel = "Find your model using a QR code!",
+    waitingForGPSSignal = "Waiting for GPS signal...",
+    generateQRCode = "Generate QR Code",
 }

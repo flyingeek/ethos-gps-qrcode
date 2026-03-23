@@ -124,20 +124,20 @@ end
 -- Calls lcd.drawFilledRectangle once per black run (batches consecutive black cells).
 local function render_qr(r, origin_x, origin_y)
     local now = os.clock()
-	local rows = r.rows
-	local cell_size = r.cell_size
+    local rows = r.rows
+    local cell_size = r.cell_size
     local size = r.size
     local margin = 4
     lcd.color(COLOR_WHITE)
     lcd.drawFilledRectangle(origin_x - margin, origin_y - margin, size * cell_size + 2 * margin, size * cell_size + 2 * margin)
     lcd.color(COLOR_BLACK)
-	for y = 1, size do
-		local py = origin_y + (y - 1) * cell_size
-		local row = rows[y]
-		for i = 1, #row, 2 do
-			lcd.drawFilledRectangle(origin_x + row[i], py, row[i + 1], cell_size)
-		end
-	end
+    for y = 1, size do
+        local py = origin_y + (y - 1) * cell_size
+        local row = rows[y]
+        for i = 1, #row, 2 do
+            lcd.drawFilledRectangle(origin_x + row[i], py, row[i + 1], cell_size)
+        end
+    end
     if debug then log("QR render took " .. (os.clock() - now)*1000 .. " ms") end
 end
 

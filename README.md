@@ -18,4 +18,6 @@ https://github.com/user-attachments/assets/ee7e2cc6-ae79-49b7-ae65-93c46701dc57
 
 ## Compatibility
 
+Localisation in en/fr/de/es/it/cs using AI.
+
 Requirement: Ethos >= 1.5.18

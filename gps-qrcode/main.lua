@@ -158,7 +158,7 @@ local function paint(widget)
     local fh = form.height()
     lcd.font(FONT_S)
     lcd.color(lcd.themeColor(14))
-    lcd.drawText(w-10, fh + 2, "v" .. version, TEXT_RIGHT)
+    lcd.drawText(w-10, fh + 2, "ethos-gps-qrcode by flyingeek v" .. version, TEXT_RIGHT)
     if widget.qr then
         local cell_size = widget.qr.cell_size
         local size = widget.qr.size
@@ -166,7 +166,8 @@ local function paint(widget)
         local text = widget.qrurl
         lcd.font(FONT_S)
         local tw, th = lcd.getTextSize(text)
-        local y0 = widget.y0 or (fh + (h - size * cell_size - fh - th - 10 - 8) / 2)
+        local offset = h > 320 and (th + 10)/2 or 0 -- small screen adjust
+        local y0 = widget.y0 or ((fh + (h - (size * cell_size) - fh - 8) / 2) - offset)
         render_qr(widget.qr, x0, y0)
         lcd.color(lcd.themeColor(THEME_DEFAULT_COLOR))
         lcd.drawText(x0 + (size * cell_size) / 2, y0 + size * cell_size + 8 + 10, text, TEXT_CENTERED)

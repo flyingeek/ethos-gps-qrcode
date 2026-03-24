@@ -1147,6 +1147,7 @@ local function prepare_qr_render(matrix, cell_size)
     end
     return { size = size, cell_size = cell_size, rows = rows }
 end
+---@diagnostic disable-next-line: undefined-global
 if testing then
     return {
         encode_string_numeric = encode_string_numeric,

@@ -6,5 +6,5 @@ return {
     progressText = "Generating QR code ...",
     findYourModel = "Find your model using a QR code!",
     waitingForGPSSignal = "Waiting for GPS signal...",
-    generateQRCode = "Generate QR Code",
+    generateQRCode = "Generate QR code",
 }

@@ -1,4 +1,4 @@
-# 1.0.0
+# 1.0.0 [download](https://github.com/flyingeek/ethos-gps-qrcode/releases/latest)
 
 An Ethos tool that displays a QR code to open Google Maps with your last GPS telemetry position.
 

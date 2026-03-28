@@ -1,4 +1,4 @@
-# ethos-gps-qrcode
+# ethos-gps-qrcode  [download](https://github.com/flyingeek/ethos-gps-qrcode/releases/latest)
 
 A tool to show your last gps position in Google Maps via a QRCode.
 

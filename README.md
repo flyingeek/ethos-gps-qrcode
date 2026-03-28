@@ -1,6 +1,8 @@
 # ethos-gps-qrcode
 
-This utility is installed is the System Menu of your Radio
+A tool to show your last gps position in Google Maps via a QRCode.
+
+This utility is installed is the System Menu of your Radio. It does not consume any resource until you open it to generate a QRCode.
 
 ![tools-menu](screenshots/tools-menu.webp)
 

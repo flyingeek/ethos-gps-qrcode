@@ -1,4 +1,4 @@
-local version = "1.0.0-rc1"
+local version = "1.0.0"
 local icon = lcd.loadMask("gps-qrcode.png")
 local ethosVersion = system.getVersion()
 local runningInSimulator = ethosVersion.simulation

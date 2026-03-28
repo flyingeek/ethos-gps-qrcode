@@ -1,6 +1,9 @@
-# 1.0.0-rc1
+# 1.0.0
 
-This is a pre-release version, only tested in simulator.
+An Ethos tool that displays a QR code to open Google Maps with your last GPS telemetry position.
+
+- Works nicely with FrSky GPS ADV sensor
+- Does not consume any resource while not in use
 
 ## Download
 

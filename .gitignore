@@ -2,3 +2,4 @@
 *.luac
 .vscode
 .luarc.json
+simulator

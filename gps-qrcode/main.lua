@@ -1,4 +1,4 @@
-local version = "1.0.0"
+local version = "1.0.1"
 local icon = lcd.loadMask("gps-qrcode.png")
 local ethosVersion = system.getVersion()
 local runningInSimulator = ethosVersion.simulation
@@ -157,7 +157,7 @@ local function paint(widget)
     local w,h = lcd.getWindowSize()
     local fh = form.height()
     lcd.font(FONT_S)
-    lcd.color(lcd.themeColor(14))
+    lcd.color(lcd.themeColor(THEME_SECONDARY_COLOR or 14))
     lcd.drawText(w-10, fh + 2, "ethos-gps-qrcode by flyingeek v" .. version, TEXT_RIGHT)
     if widget.qr then
         local cell_size = widget.qr.cell_size
@@ -169,7 +169,7 @@ local function paint(widget)
         local offset = h > 320 and (th + 10)/2 or 0 -- small screen adjust
         local y0 = widget.y0 or ((fh + (h - (size * cell_size) - fh - 8) / 2) - offset)
         render_qr(widget.qr, x0, y0)
-        lcd.color(lcd.themeColor(THEME_DEFAULT_COLOR))
+        lcd.color(lcd.themeColor(THEME_PRIMARY_COLOR or THEME_DEFAULT_COLOR))
         lcd.drawText(x0 + (size * cell_size) / 2, y0 + size * cell_size + 8 + 10, text, TEXT_CENTERED)
     elseif widget.error then
         lcd.font(FONT_STD)
@@ -177,7 +177,7 @@ local function paint(widget)
         lcd.drawText(w/2, h/2, "Error: " .. tostring(widget.error), TEXT_CENTERED)
     else
         lcd.font(FONT_STD)
-        lcd.color(lcd.themeColor(THEME_DEFAULT_COLOR))
+        lcd.color(lcd.themeColor(THEME_PRIMARY_COLOR or THEME_DEFAULT_COLOR))
         lcd.drawText(w/2, h/2, __("findYourModel"), TEXT_CENTERED)
     end
 end

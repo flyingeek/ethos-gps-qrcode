@@ -1,0 +1,17 @@
+{
+    "manifestVersion": 1,
+    "name": "GPS QRCode",
+    "key": "flyingeek.ethos-gps-qrcode",
+    "version": "1.0.1-rc1",
+    "releaseNotes": {
+        "format": "markdown",
+        "content": "# 1.0.1-rc1\n\nAn Ethos tool that displays a QR code to open Google Maps with your last GPS telemetry position.\n\n- Works nicely with FrSky GPS ADV sensor\n- Does not consume any resource while not in use\n\n## Changes\n\n- compatibility with Ethos Suite 1.7.2 installation manifest\n\n## Download\n\nYou can download the zip file in the Assets section below.\n\n## Install\n\nThe recommended way to install is to use Ethos Studio. The Ethos version on the radio must be ≥ 1.5.18\n\n![ethos suite install](https://github.com/user-attachments/assets/5aa6464a-381f-47f9-b7d7-0009da9111b5)\n\nIf you prefer the manual method, unzip, open and drag the folder named exactly _gps-qrcode_ in your radio's script folder.\n\nAfter installation, the new tool is available in your System menu. If you flash the tool icon, it will link to the github repository.\n\n## Download ![Dynamic JSON Badge]## Download ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fflyingeek%2Fethos-gps-qrcode%2Freleases%2Flatest%2Fdownload%2Fversion.json&query=%24.version&prefix=v&label=stable&color=darkgreen) ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fflyingeek%2Fethos-gps-qrcode%2Frefs%2Fheads%2Fdev%2Fethos_lua_manifest.json&query=%24.version&prefix=v&label=latest)\n\nYou can download the latest version on the [latest stable release page](https://github.com/flyingeek/ethos-gps-qrcode/releases/latest), or browse all available [releases](https://github.com/flyingeek/ethos-gps-qrcode/releases).\n"
+    },
+    "folder": "gps-qrcode",
+    "files": [
+        "gps-qrcode/main.lua",
+        "gps-qrcode/gps-qrcode.png",
+        "gps-qrcode/i18n/*",
+        "gps-qrcode/lib/*"
+    ]
+}

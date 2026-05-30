@@ -1,4 +1,4 @@
-local version = "1.0.1-rc1"
+local scriptVersion = "1.0.1-rc1"
 local icon = lcd.loadMask("gps-qrcode.png")
 local ethosVersion = system.getVersion()
 local runningInSimulator = ethosVersion.simulation
@@ -158,7 +158,7 @@ local function paint(widget)
     local fh = form.height()
     lcd.font(FONT_S)
     lcd.color(lcd.themeColor(THEME_SECONDARY_COLOR or 14))
-    lcd.drawText(w-10, fh + 2, "ethos-gps-qrcode by flyingeek v" .. version, TEXT_RIGHT)
+    lcd.drawText(w-10, fh + 2, "ethos-gps-qrcode by flyingeek v" .. scriptVersion, TEXT_RIGHT)
     if widget.qr then
         local cell_size = widget.qr.cell_size
         local size = widget.qr.size

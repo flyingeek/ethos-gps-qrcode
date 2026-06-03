@@ -1,4 +1,4 @@
-# 1.0.1-rc1
+# 1.0.1-rc2
 
 An Ethos tool that displays a QR code to open Google Maps with your last GPS telemetry position.
 
@@ -8,6 +8,7 @@ An Ethos tool that displays a QR code to open Google Maps with your last GPS tel
 ## Changes
 
 - compatibility with Ethos Suite 1.7.2 installation manifest
+- fix a manifest typo
 
 ## Download
 

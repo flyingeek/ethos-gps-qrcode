@@ -1,0 +1,49 @@
+[
+  {
+    "name": "RSSI",
+    "frames": [
+      {
+        "name": "RSSI",
+        "value": 72,
+        "interval": 200
+      }
+    ],
+    "module": 0,
+    "band": 0,
+    "rx": 0
+  },
+  {
+    "name": "GPS",
+    "frames": [
+      {
+        "name": "Latitude",
+        "value": "44.714561"
+      },
+      {
+        "name": "Longitude",
+        "value": "0.716938"
+      },
+      {
+        "name": "Altitude",
+        "value": 0
+      },
+      {
+        "name": "Speed",
+        "value": 0
+      },
+      {
+        "name": "Course",
+        "value": 0
+      },
+      {
+        "name": "Sats",
+        "value": 0
+      }
+    ],
+    "module": 0,
+    "band": 0,
+    "rx": 0,
+    "appId": 0,
+    "interval": 1000
+  }
+]

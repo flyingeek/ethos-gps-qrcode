@@ -10,6 +10,8 @@ An Ethos tool that displays a QR code to open Google Maps with your last GPS tel
 - compatibility with Ethos Suite 1.7.2 installation manifest
 - fix a manifest typo
 
+---
+
 ## Download
 
 You can download the zip file in the Assets section below.

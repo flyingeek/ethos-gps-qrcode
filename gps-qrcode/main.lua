@@ -1,4 +1,4 @@
-local scriptVersion = "1.0.1-rc2"
+local scriptVersion = "1.0.1-rc3"
 local icon = lcd.loadMask("gps-qrcode.png")
 local ethosVersion = system.getVersion()
 local runningInSimulator = ethosVersion.simulation

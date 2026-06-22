@@ -23,6 +23,7 @@ local generateQRCodeButton
 local generateQRCodeLabel
 local progressDialog
 
+---@param data Tool
 local function setLatLonSources(data)
     local gpsSrc = data.gpsSrc
     if gpsSrc and gpsSrc:category() ~= CATEGORY_NONE then
@@ -34,17 +35,27 @@ local function create()
     QR = assert(loadfile("lib/ethos-qrencode.luac", "b")())
     local i18n = assert(loadfile("i18n/i18n.luac", "b"))(isUTF8Compatible)
     __ = i18n.translate
+    ---@class Tool
     local data = {
+        ---@type QRJob|nil
         job=nil, -- job state when generating the QR Code
+        ---@type QRRuns|nil
         qr=nil, -- pre rendered QR Code when generating is finished
         gpsSrc=system.getSource(gpsSrcParameters),
+        ---@type Source|nil
         latSrc=nil,
+        ---@type Source|nil
         lonSrc=nil,
+        ---@type number|nil
         lat=nil, -- current lat position
+        ---@type number|nil
         lon=nil, -- current lon position
+        ---@type number|nil
         qrlat=nil, -- lat postion used for the generated QR Code
+        ---@type number|nil
         qrlon=nil, -- lon position used for the generated QR Code
         enabled=false, -- cache to know if generateQRCodeButton is enabled or not
+        ---@type string|nil
         error=nil, -- flag to display an error instead of the QR code, set to a string message when an error occurs
     }
     setLatLonSources(data)
@@ -73,6 +84,7 @@ local function create()
     return data
 end
 
+---@param widget Tool
 local function cleanJob(widget)
     widget.job = nil
     collectgarbage("collect")
@@ -80,6 +92,7 @@ local function cleanJob(widget)
     if progressDialog then progressDialog:close() progressDialog = nil end
 end
 
+---@param widget Tool
 local function wakeup(widget)
     if not widget then return end
     local refreshLabel
@@ -89,6 +102,9 @@ local function wakeup(widget)
     end
     if widget.latSrc and type(widget.latSrc.value) == "function" then
         local lat = widget.latSrc:value()
+        if (type(lat) == "string") then
+            lat = tonumber(lat)
+        end
         if (lat and not widget.lat) or (lat and widget.lat and (lat - widget.lat > 0.00001 or widget.lat - lat > 0.00001)) then
             refreshLabel = true
         end
@@ -96,6 +112,9 @@ local function wakeup(widget)
     end
     if widget.lonSrc and type(widget.lonSrc.value) == "function" then
         local lon = widget.lonSrc:value()
+        if (type(lon) == "string") then
+            lon = tonumber(lon)
+        end
         if (lon and not widget.lon) or (lon and widget.lon and (lon - widget.lon > 0.00001 or widget.lon - lon > 0.00001)) then
             refreshLabel = true
         end
@@ -133,6 +152,9 @@ end
 -- Render the QR code. Call from your Ethos widget paint() function.
 -- origin_x, origin_y: top-left pixel position of the QR code.
 -- Calls lcd.drawFilledRectangle once per black run (batches consecutive black cells).
+---@param r QRRuns
+---@param origin_x number
+---@param origin_y number
 local function render_qr(r, origin_x, origin_y)
     local now = os.clock()
     local rows = r.rows
@@ -152,6 +174,7 @@ local function render_qr(r, origin_x, origin_y)
     if debug then log("QR render took " .. (os.clock() - now)*1000 .. " ms") end
 end
 
+---@param widget Tool
 local function paint(widget)
     if not widget then return end
     local w,h = lcd.getWindowSize()
@@ -162,12 +185,12 @@ local function paint(widget)
     if widget.qr then
         local cell_size = widget.qr.cell_size
         local size = widget.qr.size
-        local x0 = widget.x0 or (w - size * cell_size) / 2
+        local x0 = (w - size * cell_size) / 2
         local text = widget.qrurl
         lcd.font(FONT_S)
-        local tw, th = lcd.getTextSize(text)
+        local _, th = lcd.getTextSize(text)
         local offset = h > 320 and (th + 10)/2 or 0 -- small screen adjust
-        local y0 = widget.y0 or ((fh + (h - (size * cell_size) - fh - 8) / 2) - offset)
+        local y0 = (fh + (h - (size * cell_size) - fh - 8) / 2) - offset
         render_qr(widget.qr, x0, y0)
         lcd.color(lcd.themeColor(THEME_PRIMARY_COLOR or THEME_DEFAULT_COLOR))
         lcd.drawText(x0 + (size * cell_size) / 2, y0 + size * cell_size + 8 + 10, text, TEXT_CENTERED)

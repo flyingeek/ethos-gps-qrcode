@@ -1067,6 +1067,10 @@ local mask_step_names = {
 -- While processing : returns  false, <step_name_just_completed>
 -- When finished    : returns  true,  <matrix>
 -- On error         : returns  nil,   <error_message>
+
+---@param state QRJob
+---@return boolean|nil finished if finished result in matrix, else message contains error or step name
+---@return integer[][]|string  matrix_or_step_name_or_error
 local function process_qr_step(state)
     local step = state.step or 1
 
@@ -1122,6 +1126,9 @@ end
 -- Populates state.render = { size, cell_size, rows } where rows[y] is a flat
 -- array of {px_offset, px_width, ...} pairs for each black run in that row.
 -- All values are pre-multiplied by cell_size so render_qr does only addition.
+---@param matrix integer[][]
+---@param cell_size integer
+---@return QRRuns
 local function prepare_qr_render(matrix, cell_size)
     local size = #matrix
     local rows = {}

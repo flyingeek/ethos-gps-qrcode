@@ -1,5 +1,7 @@
 # ethos-gps-qrcode  [[download]](https://github.com/flyingeek/ethos-gps-qrcode/releases/latest)
 
+![Release](https://img.shields.io/endpoint?url=https://flyingeek.github.io/ethos-gps-qrcode/release.json) ![Preview](https://img.shields.io/endpoint?url=https://flyingeek.github.io/ethos-gps-qrcode/preview.json)
+
 A tool to show your last gps position in Google Maps via a QRCode.
 
 This utility is installed is the System Menu of your Radio. It does not consume any resource until you open it to generate a QRCode.
